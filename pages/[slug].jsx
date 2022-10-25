@@ -48,13 +48,11 @@ const Detail = () => {
   //  setAllComment(docSnap.data().comments);
   }
 
-  setTimeout(()=>{
-    useEffect(()=>{
-      if(!route.isReady) return;
-      getComment();
-    },[route.isReady])
-  },5000)
-  
+  useEffect(()=>{
+    if(!route.isReady) return;
+    if(route.isReady) getComment();
+  },[route.isReady])
+
   return (
     <Layout>
         <ToastContainer></ToastContainer>
