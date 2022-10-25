@@ -9,7 +9,7 @@ import { arrayUnion, Timestamp, updateDoc, doc, getDoc, onSnapshot } from "fireb
 import Link from "next/link";
 import {BiArrowBack} from 'react-icons/bi';
 
-const detail = () => {
+const Detail = () => {
 
   const route = useRouter();
   const routeData = route.query;
@@ -66,7 +66,7 @@ const detail = () => {
             <h3>Comments</h3>
             <div>
                   {allComment.map((comment) => (
-                    <div className="my-3">
+                    <div className="my-3" key={comment.time}>
                       <div className="flex gap-2 items-center">
                         <img src={comment.avatar} className="w-8 rounded-full "/>
                         <p className="font-light">{comment.username}</p>
@@ -83,4 +83,4 @@ const detail = () => {
   )
 }
 
-export default detail
+export default Detail
