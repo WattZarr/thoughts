@@ -40,19 +40,21 @@ const Detail = () => {
 
   const getComment = async () => {
    const docRef =  doc(db,'posts',routeData.id);
-   const unsub = await onSnapshot(docRef,(snapshot) => {
-    setAllComment(snapshot.data().comments);
+   const unsub = onSnapshot(docRef,(snapshot) => {
+   setAllComment(snapshot.data().comments);
    })
    return unsub;
   //  const docSnap = await  getDoc(docRef);
   //  setAllComment(docSnap.data().comments);
   }
 
-  useEffect(()=>{
-    if(!route.isReady) return;
-    getComment();
-  },[route.isReady])
-
+  setTimeout(()=>{
+    useEffect(()=>{
+      if(!route.isReady) return;
+      getComment();
+    },[route.isReady])
+  },5000)
+  
   return (
     <Layout>
         <ToastContainer></ToastContainer>
