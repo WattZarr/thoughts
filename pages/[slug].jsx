@@ -50,7 +50,7 @@ const Detail = () => {
 
   useEffect(()=>{
     if(!route.isReady) return;
-    if(route.isReady) getComment();
+     getComment();
   },[route.isReady])
 
   return (
@@ -65,7 +65,7 @@ const Detail = () => {
         <div className="mb-4">
             <h3>Comments</h3>
             <div>
-                  {allComment.map((comment) => (
+                  {allComment?.map((comment) => (
                     <div className="my-3" key={comment.time}>
                       <div className="flex gap-2 items-center">
                         <img src={comment.avatar} className="w-8 rounded-full "/>
