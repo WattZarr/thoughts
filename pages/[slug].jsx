@@ -40,7 +40,7 @@ const Detail = () => {
 
   const getComment = async () => {
    const docRef =  doc(db,'posts',routeData.id);
-   const unsub = onSnapshot(docRef,(snapshot) => {
+   const unsub = await onSnapshot(docRef,(snapshot) => {
     setAllComment(snapshot.data().comments);
    })
    return unsub;
